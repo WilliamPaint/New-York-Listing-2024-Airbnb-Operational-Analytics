@@ -1,5 +1,5 @@
 ############################################################
-# DSCI 726 – Predictive Analysis (Airbnb NYC 2024)
+# DSCI 726 – Predictive Analysis  (Airbnb NYC 2024)
 # Target: price
 # Models: Linear Regression (p-values + VIF), Decision Tree, Random Forest
 # Author: William Kwame Paintsil (team)
@@ -254,8 +254,6 @@ dt_cv <- train(
 cat("\n===== DECISION TREE: 10-Fold CV =====\n")
 print(dt_cv)
 
-
-
 # --- OOB-based "CV" RMSE for Random Forest ---
 
 # rf_fit$mse is the OOB MSE for each tree
@@ -284,8 +282,6 @@ cat("\nRandom Forest OOB-based CV:")
 cat("\n  MAE =", round(rf_mae_mean, 3), "±", round(rf_mae_sd, 3), "\n")
 
 
-
-
 ### Extract CV mean ± SD for Linear Regression ###
 lm_rmse_mean <- mean(lm_cv$resample$RMSE)
 lm_rmse_sd   <- sd(lm_cv$resample$RMSE)
@@ -305,8 +301,6 @@ airbnb <- read.csv("C:/Users/Willi/OneDrive/Desktop/Operational Analytics Projec
 model_df <- clean_data(airbnb)
 
 rf_fit <- fit_rf(model_formula, train_df)
-
-
 
 
 ############################################################
@@ -415,9 +409,7 @@ cat("Anchor-area RF mean price:", round(anchor_mean, 2), "\n")
 cat("Percent lift (anchor vs overall):",
     round(improvement_pct, 1), "%\n")
 
-
-
-
+                   
 ############################################################
 ## PRESCRIPTIVE ANALYSIS – FULL BOROUGH SUMMARY
 ## Uses: airbnb, rf_fit, PRICE_CUTOFF
@@ -461,11 +453,6 @@ opt_table_full <- prec_df %>%
 cat("\n===== FULL PRESCRIPTIVE SUMMARY (ALL BOROUGHS) =====\n")
 print(opt_table_full)
 
-
-
-
-
-
 library(dplyr)
 
 # presc_df should already contain:
@@ -491,16 +478,6 @@ opt_table_full <- presc_all %>%
 
 cat("\n===== FULL PRESCRIPTIVE SUMMARY (ALL BOROUGHS) =====\n")
 print(opt_table_full)
-
-
-
-
-
-
-
-
-
-
 
 # ============================
 # Static Map of Optimal Anchor
@@ -588,9 +565,6 @@ ggplot() +
   theme_minimal(base_size = 13)
 
 
-
-
-
 # ============================
 # Interactive Leaflet Map
 # ============================
@@ -630,23 +604,6 @@ leaflet(data = airbnb_map) %>%
   )
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 library(dplyr)
 library(leaflet)
 
@@ -666,7 +623,6 @@ haversine_m <- function(lat1, lon1, lat2, lon2) {
   c <- 2 * atan2(sqrt(a), sqrt(1 - a))
   R * c
 }
-
 
 
 # Use your original Airbnb data frame
@@ -748,11 +704,6 @@ leaflet(data = airbnb_in_radius) %>%
     options = layersControlOptions(collapsed = FALSE)
   )
 
-
-
-
-
-
 leaflet(data = airbnb_in_radius) %>%
   addProviderTiles(providers$CartoDB.Positron) %>%
   
@@ -797,12 +748,6 @@ leaflet(data = airbnb_in_radius) %>%
     overlayGroups = c("Listings in 1.75-mile Radius", "Optimization Radius"),
     options = layersControlOptions(collapsed = FALSE)
   )
-
-
-
-
-
-
 
 library(dplyr)
 library(leaflet)
@@ -862,8 +807,6 @@ leaflet(data = airbnb_in_radius) %>%
     overlayGroups = c("Listings in 1.75-mile Radius", "Optimization Radius"),
     options = layersControlOptions(collapsed = FALSE)
   )
-
-
 
 # Compute one representative point (centroid-ish) per borough
 borough_labels <- airbnb_in_radius %>%
@@ -937,4 +880,5 @@ leaflet(data = airbnb_in_radius) %>%
     overlayGroups = c("Listings in 1.75-mile Radius", "Optimization Radius"),
     options = layersControlOptions(collapsed = FALSE)
   )
+
 
