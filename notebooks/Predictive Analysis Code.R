@@ -214,10 +214,6 @@ cat("* Tree / Random Forest: tuned by cp (min xerror) and mtry (OOB error); inte
 cat("* Validation: 70/30 train–test split; metrics reported on test set (RMSE, MAE, R^2).\n") 
 
 
-
-
-
-
 ############################################################
 ### 10) K-FOLD CV (10-fold) FOR LM, DT, RF
 ############################################################
@@ -300,25 +296,6 @@ lm_mae_sd   <- sd(lm_cv$resample$MAE)
 cat("\nLinear Regression CV (10-fold):")
 cat("\n  RMSE =", round(lm_rmse_mean, 3), "±", round(lm_rmse_sd, 3))
 cat("\n  MAE  =", round(lm_mae_mean, 3), "±", round(lm_mae_sd, 3), "\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -437,29 +414,6 @@ cat("\nOverall RF mean price:   ", round(overall_mean, 2), "\n")
 cat("Anchor-area RF mean price:", round(anchor_mean, 2), "\n")
 cat("Percent lift (anchor vs overall):",
     round(improvement_pct, 1), "%\n")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -715,12 +669,6 @@ haversine_m <- function(lat1, lon1, lat2, lon2) {
 
 
 
-
-
-
-
-
-
 # Use your original Airbnb data frame
 # airbnb <- read.csv("C:/Users/Willi/OneDrive/Desktop/Operational Analytics Project/new_york_listings_2024.csv",
 #                    stringsAsFactors = FALSE)
@@ -917,15 +865,6 @@ leaflet(data = airbnb_in_radius) %>%
 
 
 
-
-
-
-
-
-
-
-
-
 # Compute one representative point (centroid-ish) per borough
 borough_labels <- airbnb_in_radius %>%
   group_by(neighbourhood_group) %>%
@@ -998,3 +937,4 @@ leaflet(data = airbnb_in_radius) %>%
     overlayGroups = c("Listings in 1.75-mile Radius", "Optimization Radius"),
     options = layersControlOptions(collapsed = FALSE)
   )
+
