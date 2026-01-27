@@ -1,4 +1,5 @@
 <h1>Airbnb Market Analysis: Pricing, Prediction &amp; Optimization (NYC, 2024)</h1>
+<img width="651" height="473" alt="image" src="https://github.com/user-attachments/assets/0a86da3b-832f-4f7a-9397-01976f899e99" />
 
 <div style="margin:12px 0;">
   <span style="background:#0f172a;color:#ffffff;padding:6px 10px;border-radius:6px;font-size:13px;font-weight:600;">
